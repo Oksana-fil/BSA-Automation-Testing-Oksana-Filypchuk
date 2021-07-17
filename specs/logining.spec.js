@@ -1,6 +1,4 @@
-const assert = require('assert');
-
-const { expect } = require('chai');
+/*const { expect } = require('chai');
 
 //Go to wesite (url)
 //Enter valide data in boxes
@@ -41,5 +39,4 @@ describe('Sing-in:', function () {
 
         await browser.reloadSession();
     });
-});
-
+});*/
