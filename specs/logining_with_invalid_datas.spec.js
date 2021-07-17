@@ -1,4 +1,4 @@
-/*const { expect } = require('chai');
+const { expect } = require('chai');
 
 //Go to wesite (url)
 //Enter invalide data in boxes
@@ -33,11 +33,10 @@ describe('Sign in:', function () {
       { timeout: 5000 },
     );
 
-
     const url = await browser.getUrl();
     expect(url).to.not.eql('http://46.101.234.121/doctors');
     expect(url).to.be.eql('http://46.101.234.121/sign-in');
 
     await browser.reloadSession();
   });
-});*/
+});

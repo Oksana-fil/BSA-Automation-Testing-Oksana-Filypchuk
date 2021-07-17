@@ -1,4 +1,4 @@
-/*const { expect } = require('chai');
+const { expect } = require('chai');
 
 //Go to wesite (url)
 //Sing-in to acount
@@ -70,5 +70,3 @@ describe('Sing-in:', function () {
         await browser.reloadSession();
     });
 });
-
-*/

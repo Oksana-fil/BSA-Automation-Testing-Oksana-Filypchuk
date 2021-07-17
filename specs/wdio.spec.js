@@ -1,4 +1,4 @@
-/*const { expect } = require('chai');
+const { expect } = require('chai');
 
 const rundomNumber = () => Date.now();
 
@@ -77,4 +77,3 @@ describe('Registration:', function () {
     await browser.reloadSession();
   });
 });
-*/
