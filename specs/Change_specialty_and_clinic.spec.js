@@ -48,21 +48,45 @@ describe('Sing-in:', function () {
         );
 
         
-        const ddls = await $$('div.selectStyles__control')
+        const ddls = await $$('div.selectStyles__control');
 
         const specialtyDdl = ddls[0];
         const clinicDdl = ddls[1];
 
-        const doctorOption = await $('div.selectStyles__option=No Options');
-        const doctorOption = await $('div.selectStyles__option=Cleveland Clinic');
+        const dantistOption = await $('div.selectStyles__option=dentist');
+        const clevelandOption = await $('div.selectStyles__option=Cleveland Clinic');
+
+        const saveSpecialtyButton = await $('button[class="styles_btn___s1BB styles_without-border__3Vbp3 styles_primary-dark__1WnyR"]');
+        const saveClinicButton = await $('button[class="styles_btn___s1BB styles_without-border__3Vbp3 styles_primary-dark__1WnyR"]');
 
         await specialtyDdl.waitForDisplayed({ timeout: 5000 });
-        await specialtyDdl.setValue('Surgery');
+        await specialtyDdl.click();
 
+        await dantistOption.waitForDisplayed({ timeout: 5000 });
+        await dantistOption.click();
+
+        await saveSpecialtyButton.waitForDisplayed({ timeout: 5000});
+        await saveSpecialtyButton.click();
+
+        await browser.pause(5000);
+       
         await clinicDdl.waitForDisplayed({ timeout: 5000 });
         await clinicDdl.click();
+        
+        await clevelandOption.waitForDisplayed({ timeout: 5000 });
+        await clevelandOption.click();
+        await browser.pause(5000);
+        
+        await saveClinicButton.waitForDisplayed({ timeout: 5000});
+        await saveClinicButton.click();
 
-        await doctorOption.waitForDisplayed({ timeout: 5000 });
-        await doctorOption.click();
+        
+
+
+        //const surname = await usernameField;
+        //expect(surname).to.be.eql(NewName)
+
+        await browser.reloadSession();
+
     });
 });
