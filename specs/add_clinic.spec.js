@@ -80,10 +80,6 @@ describe('Add clinic:', function () {
         await saveAddedClinic.waitForDisplayed({ timeout: 5000 });
         await saveAddedClinic.click();
 
-
-        //const surname = await usernameField;
-        //expect(surname).to.be.eql(NewName)
-
         await browser.reloadSession();
 
     });

@@ -82,12 +82,6 @@ describe('Change specialty and clinic:', function () {
         await saveClinicButton.click();
 
 
-
-
-        //const surname = await usernameField;
-        //expect(surname).to.be.eql(NewName)
-
         await browser.reloadSession();
-
     });
 });
