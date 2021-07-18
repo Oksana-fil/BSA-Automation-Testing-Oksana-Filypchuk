@@ -35,7 +35,7 @@ describe('Change specialty and clinic:', function () {
                 const url = await browser.getUrl();
                 return url === 'http://46.101.234.121/doctors';
             },
-            { timeout: 3000 },
+            { timeout: 5000 },
         );
         await browser.pause(5000);
 
