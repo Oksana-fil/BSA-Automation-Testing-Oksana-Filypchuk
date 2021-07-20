@@ -17,28 +17,23 @@ describe('Change specialty and clinic:', function () {
   });
 
   it('should be able to change specialty and clinic', async function () {
-    await app.editPage.register({
+    await app.changePage.register({
       email: `john_admin1@admin.com`,
       password: 'Pa55word',
-      specialty: 'Dentist',
+      specialty: 'dentist',
       clinic: 'Cleveland Clinic',
     });
 
     await browser.waitUntil(
-      async function () {
-        const url = await browser.getUrl();
-        return url === '/doctors';
-      },
-      { timeout: 5000 },
-    );
-
-    await browser.waitUntil(
         async function () {
           const url = await browser.getUrl();
-          return url === '/user-profile/10b17307-24a9-4893-a841-4f3b5a0899e2';
+          return url === 'http://46.101.234.121/user-profile/aa5058a3-3e09-4db4-b8fb-2232cc612265';
         },
         { timeout: 5000 },
       );
+
+      const url = await browser.getUrl();
+      expect(url).to.be.eql('http://46.101.234.121/user-profile/aa5058a3-3e09-4db4-b8fb-2232cc612265');
 
   });
 });

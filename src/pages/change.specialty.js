@@ -6,14 +6,14 @@ class ChangePage {
         this.passwordField = new Input('input[name="password"]');
         this.signInButton = new Button('button');
 
-        this.profileLink = new Button('a[href="/user-profile/10b17307-24a9-4893-a841-4f3b5a0899e2"]');
+        this.profileLink = new Button('a[href="/user-profile/aa5058a3-3e09-4db4-b8fb-2232cc612265"]');
 
         this.specialtyDdl = new Button('div.selectStyles__control', 0);
         this.clinicDdl = new Button('div.selectStyles__control', 1);
 
         this.ddlOption = new Button('div.selectStyles__option=TEXT_TO_REPLACE');
-        this.saveSpecialtyButton = new Button('button');
-        this.saveClinicButton = new Button('button');
+        this.saveSpecialtyButton = new Button('button[type="submit"]', 0);
+        this.saveClinicButton = new Button('button[type="submit"]', 1);
   }
 
   async register({ email, password, specialty, clinic }) {
