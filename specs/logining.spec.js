@@ -11,7 +11,6 @@ describe('Autorization:', function () {
     await browser.url('http://46.101.234.121/sign-in');
   });
 
-
   afterEach(async function () {
     await browser.reloadSession();
   });
