@@ -2,6 +2,7 @@ const { AuthPage } = require('./auth.page');
 const { LoginPage } = require('./login.page');
 const { EditPage } = require('./profile.editing');
 const { ChangePage } = require('./change.specialty');
+const { AddClinicPage } = require('./add.clinic');
 
 
 class App {
@@ -10,6 +11,7 @@ class App {
     this.loginPage = new LoginPage();
     this.editPge = new EditPage();
     this.changePage = new ChangePage();
+    this.addClinicPage = new AddClinicPage();
   }
 }
 

@@ -28,7 +28,7 @@ class ChangePage {
     await this.saveSpecialtyButton.click();
 
     await this.clinicDdl.click();
-    await this.ddlOption.clickByText(clinic);
+    await this.ddlOption.clickByText(clinicDdl);
     await this.saveClinicButton.click();
 
   }
