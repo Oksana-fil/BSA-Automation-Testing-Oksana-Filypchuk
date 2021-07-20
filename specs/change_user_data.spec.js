@@ -1,4 +1,4 @@
-/*const { expect } = require('chai');
+const { expect } = require('chai');
 
 const { App } = require('../src/pages');
 
@@ -17,18 +17,20 @@ describe('Edit profile:', function () {
   });
 
   it('should be able to update profile', async function () {
-    await app.editPage.register({
+
+    await app.loginPage.register({
       email: `jane123smith@gmail.com`,
       password: 'Pa55word',
     });
 
-    await browser.waitUntil(
-      async function () {
-        const url = await browser.getUrl();
-        return url === 'http://46.101.234.121/doctors';
-      },
-      { timeout: 5000 },
-    );
+    await app.editPage.changeSurname({
+      surname: 'Watson',
+    });
+
+    
+    //const mySurnameSpan = await $('span.styles_name__2vTNE');
+
+    // expect(mySurnameSpan).to.include('Watson');
 
     await browser.waitUntil(
       async function () {
@@ -37,17 +39,7 @@ describe('Edit profile:', function () {
       },
       { timeout: 5000 },
     );
-
-    
-  it('should be able to update profile', async function () {
-    await app.editPage.register({
-      surname: 'Watson',
-    });
-
-
-    const mySurname = $('input[name="surname"]');
-    expect(mySurname).toHaveValueContaining('Watson');
-
+    const url = await browser.getUrl();
+    expect(url).to.be.eql('http://46.101.234.121/user-profile/10b17307-24a9-4893-a841-4f3b5a0899e2');
   });
-  });
-});*/
+});

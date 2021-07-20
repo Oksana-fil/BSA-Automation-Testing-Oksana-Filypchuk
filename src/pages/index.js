@@ -9,7 +9,7 @@ class App {
   constructor() {
     this.authPage = new AuthPage();
     this.loginPage = new LoginPage();
-    this.editPge = new EditPage();
+    this.editPage = new EditPage();
     this.changePage = new ChangePage();
     this.addClinicPage = new AddClinicPage();
   }
