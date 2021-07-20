@@ -19,27 +19,25 @@ describe('Add clinic:', function () {
   it('should be able to add clinic', async function () {
     await app.addClinicPage.register({
       email: `john_admin1@admin.com`,
-      password: 'Pa55word',
-      name: 'New clinic',
-      address: 'West, AVE',
-      status: 'State',
-      city: 'Boston, MA',
+      password: 'Pa55word'
     });
 
-    await browser.waitUntil(
-      async function () {
-        const url = await browser.getUrl();
-        return url === '/doctors';
-      },
-      { timeout: 5000 },
-    );
+    await app.addClinicPage.add({
+      name: 'New clinic4',
+      address: 'West, AVE4',
+      status: 'state',
+      city: 'Boston, MA'
+    });
 
     await browser.waitUntil(
         async function () {
           const url = await browser.getUrl();
-          return url === '/clinics';
+          return url === 'http://46.101.234.121/clinics';
         },
         { timeout: 5000 },
       );
+
+      const url = await browser.getUrl();
+      expect(url).to.be.eql('http://46.101.234.121/clinics'); // TODO::check
     });
 });
