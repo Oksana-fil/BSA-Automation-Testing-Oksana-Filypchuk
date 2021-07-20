@@ -16,7 +16,7 @@ class ChangePage {
         this.saveClinicButton = new Button('button');
   }
 
-  async register({ email, password, specialty, clinic, }) {
+  async register({ email, password, specialty, clinic }) {
     await this.emailField.setValue(email);
     await this.passwordField.setValue(password);
     await this.signInButton.click();
