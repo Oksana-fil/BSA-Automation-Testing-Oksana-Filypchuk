@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+/*const { expect } = require('chai');
 
 const { App } = require('../src/pages');
 
@@ -34,7 +34,7 @@ describe('Autorization:', function () {
 
   });
 
-  it('should be able to log in', async function () {
+  it('should be not able to log in', async function () {
     await app.loginPage.register({
       email: `janemith@gmail.com`,
       password: 'Pa55word',
@@ -51,4 +51,4 @@ describe('Autorization:', function () {
     const url = await browser.getUrl();
     expect(url).to.be.eql('http://46.101.234.121/sign-in');
   });
-});
+});*/

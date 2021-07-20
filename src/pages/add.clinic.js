@@ -19,13 +19,16 @@ class AddClinicPage {
         this.addButton = new Button('div[class="styles_submitBtn__jK6DU"]');
     }
 
-    async register({ email, password, }) {
+    async register({ email, password, name, address, statusDdl, cityDdl }) {
         await this.emailField.setValue(email);
         await this.passwordField.setValue(password);
         await this.signInButton.click();
     
         await this.clinicsLink.click();
         await this.addClinicButton.click();
+
+        await this.nameField.setValue(name);
+        await this.addressField.setValue(address);
     
         await this.statusDdl.click();
         await this.ddlOption.clickByText(statusDdl);

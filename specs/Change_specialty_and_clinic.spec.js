@@ -1,10 +1,10 @@
-const { expect } = require('chai');
+/*const { expect } = require('chai');
 
 const { App } = require('../src/pages');
 
 const app = new App();
 
-describe('Edit profile:', function () {
+describe('Change specialty and clinic:', function () {
   beforeEach(async function () {
 
     await browser.setWindowSize(1440, 960);
@@ -16,9 +16,9 @@ describe('Edit profile:', function () {
     await browser.reloadSession();
   });
 
-  it('should be able to update profile', async function () {
+  it('should be able to change specialty and clinic', async function () {
     await app.editPage.register({
-      email: `jane123smith@gmail.com`,
+      email: `john_admin1@admin.com`,
       password: 'Pa55word',
     });
 
@@ -45,3 +45,4 @@ describe('Edit profile:', function () {
 
   });
 });
+*/

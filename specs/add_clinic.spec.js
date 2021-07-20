@@ -4,11 +4,11 @@ const { App } = require('../src/pages');
 
 const app = new App();
 
-describe('Edit profile:', function () {
+describe('Add clinic:', function () {
   beforeEach(async function () {
 
     await browser.setWindowSize(1440, 960);
-    await browser.url('http://46.101.234.121/sign-in');
+    await browser.url('/sign-in');
   });
 
 
@@ -16,16 +16,20 @@ describe('Edit profile:', function () {
     await browser.reloadSession();
   });
 
-  it('should be able to update profile', async function () {
-    await app.editPage.register({
-      email: `jane123smith@gmail.com`,
+  it('should be able to add clinic', async function () {
+    await app.addClinicPage.register({
+      email: `john_admin1@admin.com`,
       password: 'Pa55word',
+      name: 'New clinic',
+      address: 'West, AVE',
+      status: 'State',
+      city: 'Boston, MA',
     });
 
     await browser.waitUntil(
       async function () {
         const url = await browser.getUrl();
-        return url === 'http://46.101.234.121/doctors';
+        return url === '/doctors';
       },
       { timeout: 5000 },
     );
@@ -33,16 +37,9 @@ describe('Edit profile:', function () {
     await browser.waitUntil(
         async function () {
           const url = await browser.getUrl();
-          return url === 'http://46.101.234.121/clinics';
+          return url === '/clinics';
         },
         { timeout: 5000 },
       );
-    await app.editPage.register({
-        name: 'New clinic',
-        address: 'West, AVE',
-        status: 'State',
-        city: 'Boston, MA',
-      });
-
     });
 });

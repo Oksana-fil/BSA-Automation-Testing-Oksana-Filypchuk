@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+/*const { expect } = require('chai');
 
 const { App } = require('../src/pages');
 
@@ -50,4 +50,4 @@ describe('Edit profile:', function () {
 
   });
   });
-});
+});*/

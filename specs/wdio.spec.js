@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+/*const { expect } = require('chai');
 
 const { App } = require('../src/pages');
 const rundomNumber = () => Date.now();
@@ -65,4 +65,4 @@ describe('Registration:', function () {
     const url = await browser.getUrl();
     expect(url).to.be.eql('http://46.101.234.121/doctors');
   });
-});
+});*/

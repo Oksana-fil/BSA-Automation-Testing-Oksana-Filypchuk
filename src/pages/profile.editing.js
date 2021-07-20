@@ -8,9 +8,9 @@ class EditPage {
 
         this.profileLink = new Button('a[href="/user-profile/10b17307-24a9-4893-a841-4f3b5a0899e2"]');
 
-        this.editProfileButton = Button('button[class="styles_btn___s1BB styles_medium-round__3KyFO styles_gray-light__3fTxu styles_edit__ftuHl"]');
-        this.surnameField = Input('input[name="surname"]');
-        this.editButton = Button('div.styles_editContainer__3utW5')
+        this.editProfileButton = new Button('button[class="styles_btn___s1BB styles_medium-round__3KyFO styles_gray-light__3fTxu styles_edit__ftuHl"]');
+        this.surnameField = new Input('input[name="surname"]');
+        this.editButton = new Button('div.styles_editContainer__3utW5')
 
     }
 
