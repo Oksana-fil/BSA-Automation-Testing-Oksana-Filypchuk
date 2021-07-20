@@ -1,71 +1,38 @@
 const { expect } = require('chai');
 
-//Go to wesite (url)
-//Sing-in to acount
-//Click on "My Profile"
-//Click on "Edit" button next to Profile 
-//Change data to new
-//Click on "Edit" button
-//Compare result
+const { App } = require('../src/pages');
 
-describe('Edit user data', function () {
+const app = new App();
 
-    it('should be able to edit user data', async function () {
+describe('Edit profile:', function () {
+  beforeEach(async function () {
 
-        await browser.setWindowSize(1440, 960);
-        await browser.url('http://46.101.234.121/sign-in');
-
-        const emailField = await $('input[name="email"]');
-        const passwordField = await $('input[name="password"]');
-
-        const signInButton = await $('button');
-
-        await emailField.waitForDisplayed({ timeout: 3000 });
-        await emailField.setValue('john_admin1@admin.com');
-
-        await passwordField.waitForDisplayed({ timeout: 5000 });
-        await passwordField.setValue('Pa55word');
-
-        await signInButton.waitForDisplayed({ timeout: 5000 });
-        await signInButton.click();
-        await browser.waitUntil(
-            async function () {
-                const url = await browser.getUrl();
-                return url === 'http://46.101.234.121/doctors';
-            },
-            { timeout: 5000 },
-        );
-
-        await browser.url('http://46.101.234.121/user-profile/aa5058a3-3e09-4db4-b8fb-2232cc612265');
-
-        await browser.waitUntil(
-            async function () {
-                const url = await browser.getUrl();
-                return url === 'http://46.101.234.121/user-profile/aa5058a3-3e09-4db4-b8fb-2232cc612265';
-            },
-            { timeout: 8000 },
-        );
-
-        const editProfileButton = await $('button[class="styles_btn___s1BB styles_medium-round__3KyFO styles_gray-light__3fTxu styles_edit__ftuHl"]')
-        const usernameField = await $('input[name="surname"]');
-        const saveEditButton = await $$('button[class="styles_btn___s1BB styles_without-border__3Vbp3 styles_primary-dark__1WnyR"]');
-
-        const button = saveEditButton [3]; 
-
-        await editProfileButton.waitForDisplayed({ timeout: 5000 });
-        await editProfileButton.click();
-
-        await usernameField.waitForDisplayed({ timeout: 5000 });
-        await usernameField.setValue('NewName');
-
-        await button.waitForDisplayed({ timeout: 5000 });
-        await button.click();
+    await browser.setWindowSize(1440, 960);
+    await browser.url('http://46.101.234.121/sign-in');
+  });
 
 
+  afterEach(async function () {
+    await browser.reloadSession();
+  });
 
-        const surname = usernameField;
-        expect(surname).to.be.eql('NewName');
-
-        await browser.reloadSession();
+  it('should be able to update profile', async function () {
+    await app.editPage.register({
+      email: `jane123smith@gmail.com`,
+      password: 'Pa55word',
     });
+
+    await browser.waitUntil(
+      async function () {
+        const url = await browser.getUrl();
+        return url === 'http://46.101.234.121/doctors';
+      },
+      { timeout: 5000 },
+    );
+
+    const mySurname = $('input[name="surname"]');
+    expect(mySurname).toHaveValueContaining('Watson');
+
+    await browser.reloadSession();
+  });
 });

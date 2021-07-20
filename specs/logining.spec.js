@@ -1,42 +1,55 @@
 const { expect } = require('chai');
 
-//Go to wesite (url)
-//Enter valide data in boxes
-//Click on "Sing in" button
-//Compare result
+const { App } = require('../src/pages');
 
-describe('Sing-in:', function () {
+const app = new App();
 
-    it('should be able to sing in', async function () {
+describe('Autorization:', function () {
+  beforeEach(async function () {
 
-        await browser.setWindowSize(1440, 960);
-        await browser.url('http://46.101.234.121/sign-in');
+    await browser.setWindowSize(1440, 960);
+    await browser.url('http://46.101.234.121/sign-in');
+  });
 
-        const emailField = await $('input[name="email"]');
-        const passwordField = await $('input[name="password"]');
 
-        const signInButton = await $('button');
+  afterEach(async function () {
+    await browser.reloadSession();
+  });
 
-        await emailField.waitForDisplayed({ timeout: 5000 });
-        await emailField.setValue('john_admin1@admin.com');
-
-        await passwordField.waitForDisplayed({ timeout: 5000 });
-        await passwordField.setValue('Pa55word');
-
-        await signInButton.waitForDisplayed({ timeout: 5000 });
-        await signInButton.click();
-
-        await browser.waitUntil(
-            async function () {
-                const url = await browser.getUrl();
-                return url === 'http://46.101.234.121/doctors';
-            },
-            { timeout: 5000 },
-        );
-
-        const url = await browser.getUrl();
-        expect(url).to.be.eql('http://46.101.234.121/doctors')
-
-        await browser.reloadSession();
+  it('should be able to log in', async function () {
+    await app.loginPage.register({
+      email: `jane123smith@gmail.com`,
+      password: 'Pa55word',
     });
+
+    await browser.waitUntil(
+      async function () {
+        const url = await browser.getUrl();
+        return url === 'http://46.101.234.121/doctors';
+      },
+      { timeout: 5000 },
+    );
+
+    const url = await browser.getUrl();
+    expect(url).to.be.eql('http://46.101.234.121/doctors');
+
+  });
+
+  it('should be able to log in', async function () {
+    await app.loginPage.register({
+      email: `janemith@gmail.com`,
+      password: 'Pa55word',
+    });
+
+    await browser.waitUntil(
+      async function () {
+        const url = await browser.getUrl();
+        return url === 'http://46.101.234.121/sign-in';
+      },
+      { timeout: 5000 },
+    );
+
+    const url = await browser.getUrl();
+    expect(url).to.be.eql('http://46.101.234.121/sign-in');
+  });
 });

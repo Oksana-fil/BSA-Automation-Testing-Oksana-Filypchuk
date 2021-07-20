@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+/*const { expect } = require('chai');
 
 //Go to wesite (url)
 //Sing-in to acount
@@ -84,4 +84,4 @@ describe('Change specialty and clinic:', function () {
 
         await browser.reloadSession();
     });
-});
+});*/
