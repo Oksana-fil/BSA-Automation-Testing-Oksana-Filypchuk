@@ -16,7 +16,7 @@ class ChangePage {
         this.saveClinicButton = new Button('button');
   }
 
-  async register({ email, password, surname }) {
+  async register({ email, password, specialty, clinic, }) {
     await this.emailField.setValue(email);
     await this.passwordField.setValue(password);
     await this.signInButton.click();
@@ -24,11 +24,11 @@ class ChangePage {
     await this.profileLink.click();
 
     await this.specialtyDdl.click();
-    await this.ddlOption.clickByText(specialtyDdl);
+    await this.ddlOption.clickByText(specialty);
     await this.saveSpecialtyButton.click();
 
     await this.clinicDdl.click();
-    await this.ddlOption.clickByText(clinicDdl);
+    await this.ddlOption.clickByText(clinic);
     await this.saveClinicButton.click();
 
   }

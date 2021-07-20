@@ -1,4 +1,4 @@
-/*const { expect } = require('chai');
+const { expect } = require('chai');
 
 const { App } = require('../src/pages');
 
@@ -8,7 +8,7 @@ describe('Change specialty and clinic:', function () {
   beforeEach(async function () {
 
     await browser.setWindowSize(1440, 960);
-    await browser.url('http://46.101.234.121/sign-in');
+    await browser.url('/sign-in');
   });
 
 
@@ -20,12 +20,14 @@ describe('Change specialty and clinic:', function () {
     await app.editPage.register({
       email: `john_admin1@admin.com`,
       password: 'Pa55word',
+      specialty: 'Dentist',
+      clinic: 'Cleveland Clinic',
     });
 
     await browser.waitUntil(
       async function () {
         const url = await browser.getUrl();
-        return url === 'http://46.101.234.121/doctors';
+        return url === '/doctors';
       },
       { timeout: 5000 },
     );
@@ -33,16 +35,10 @@ describe('Change specialty and clinic:', function () {
     await browser.waitUntil(
         async function () {
           const url = await browser.getUrl();
-          return url === 'http://46.101.234.121/user-profile/10b17307-24a9-4893-a841-4f3b5a0899e2';
+          return url === '/user-profile/10b17307-24a9-4893-a841-4f3b5a0899e2';
         },
         { timeout: 5000 },
       );
 
-    await app.editPage.register({
-        specialty: 'Dentist',
-        clinic: 'Cleveland Clinic',
-    });
-
   });
 });
-*/
